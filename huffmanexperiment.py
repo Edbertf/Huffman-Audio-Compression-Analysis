@@ -140,7 +140,7 @@ def plot_symbol_distribution(signal_name, frequencies, output_folder):
     counts = [frequencies[symbol] for symbol in symbols]
 
     plt.figure(figsize=(8, 3))
-    plt.bar(symbols, counts, width=3.0)
+    plt.bar(symbols, counts, width=0.8)
 
     plt.title(f"Symbol Frequency Distribution of {signal_name}")
     plt.xlabel("Byte Value")

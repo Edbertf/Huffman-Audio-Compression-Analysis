@@ -14,14 +14,13 @@ def generate_signals(fs=8000, duration=2.0, frequency=440):
     signals = {
         "Silence / Low Variation": np.zeros_like(t),
 
-        "Sine Wave": 0.8 * np.sin(2 * np.pi * frequency * t),
+        "Sine Wave": np.sin(2 * np.pi * frequency * t),
 
-        "Square Wave": 0.8 * np.where(
-            np.sin(2 * np.pi * frequency * t) >= 0,1,-1),
+        "Square Wave": np.where(np.sin(2 * np.pi * frequency * t) >= 0,1,-1),
 
-        "Sawtooth Wave": 0.8 * (2 * (frequency * t - np.floor(0.5 + frequency * t))),
+        "Sawtooth Wave": (2 * (frequency * t - np.floor(0.5 + frequency * t))),
 
-        "White Noise": 0.8 * rng.uniform(-1, 1, len(t))
+        "White Noise": rng.uniform(-1, 1, len(t))
     }
     return signals, t
 
